@@ -8,11 +8,12 @@ public class StatDTO {
 	private int algorithm;
 	private int health;
 	private int license;
+	private int day;
 	
 	public StatDTO() {
 		
 	}
-	public StatDTO(String id, String nickname, int intellect, int cs, int algorithm, int health, int license) {
+	public StatDTO(String id, String nickname, int intellect, int cs, int algorithm, int health, int license, int day) {
 		this.id = id;
 		this.nickname = nickname;
 		this.intellect = intellect;
@@ -20,6 +21,7 @@ public class StatDTO {
 		this.algorithm = algorithm;
 		this.health = health;
 		this.license = license;
+		this.day = day;
 	}
 
 	public String getId() {
@@ -76,6 +78,12 @@ public class StatDTO {
 
 	public void setLicense(int license) {
 		this.license = license;
+	}
+	public int getDay() {
+		return day;
+	}
+	public void setDay(int day) {
+		this.day = day;
 	}
 	
 	

@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import dao.smhrdGraduationDAO;
 import dto.MemberDTO;
+import dto.StatDTO;
 
 public class MenuTest {
 
@@ -55,8 +56,14 @@ public class MenuTest {
 		}
 		
 		while(uId !=null) {
-			
-			System.out.println("[1]로그인 [2]회원가입 [3]회원탈퇴 [4]게임종료");
+			StatDTO dto = dao.SelectInpo(uId);
+			System.out.println(dto.getDay()+"일차 갓생력");
+			System.out.println("CS: "+dto.getCs());
+			System.out.println("알고리즘"+dto.getAlgorithm());
+			System.out.println("지능"+dto.getIntellect());
+			System.out.println("건강"+dto.getHealth());
+			System.out.println("자격증"+dto.getLicense());
+			System.out.println("[1]수업듣기 [2]독학하기 [3]시험보기 [4]간식먹기 [5]늦잠자기");
 			break;
 			
 		}

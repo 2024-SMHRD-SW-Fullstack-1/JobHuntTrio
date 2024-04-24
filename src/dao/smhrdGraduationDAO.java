@@ -121,7 +121,7 @@ public StatDTO SelectInpo(String id) {
 				rs = psmt.executeQuery();
 				ResultSetMetaData rsmd = rs.getMetaData();
 				while(rs.next()) {
-					dto = new StatDTO(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getInt(5), rs.getInt(6), rs.getInt(7));
+					dto = new StatDTO(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getInt(5), rs.getInt(6), rs.getInt(7), rs.getInt(8));
 				}
 				
 			} catch (Exception e) {
