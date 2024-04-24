@@ -4,9 +4,12 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
-import dto.smhrdGraduationDTO;
+import java.util.ArrayList;
+import dto.MemberDTO;
+import dto.StatDTO;
 
 public class smhrdGraduationDAO{
 	
@@ -37,7 +40,7 @@ public class smhrdGraduationDAO{
 		}
 		
 	// 회원가입
-	public int join(smhrdGraduationDTO dto) {
+	public int join(MemberDTO dto) {
 
 		int row = 0;
 		
@@ -63,7 +66,7 @@ public class smhrdGraduationDAO{
 	}
 	
 	//회원탈퇴
-	public int delete(smhrdGraduationDTO dto) {
+	public int delete(MemberDTO dto) {
 			
 			int row = 0;
 			try {
@@ -84,6 +87,30 @@ public class smhrdGraduationDAO{
 			}
 			return row;
 		}
+	
+	// 캐릭터정보출력
+public StatDTO SelectInpo(String id) {
+		
+		StatDTO dto = new StatDTO();
+			try {
+				getConn();
+				
+				String sql = "SELECT * FROM STAT_TB WHERE MEMBER_ID='"+id+"'";
+				psmt = conn.prepareStatement(sql);
+				
+				rs = psmt.executeQuery();
+				ResultSetMetaData rsmd = rs.getMetaData();
+				while(rs.next()) {
+					dto = new StatDTO(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getInt(5), rs.getInt(6), rs.getInt(7));
+				}
+				
+			} catch (Exception e) {
+					e.printStackTrace();
+				} finally {
+					getClose();
+				}
+			return dto;
+	}
 	
 	
 }

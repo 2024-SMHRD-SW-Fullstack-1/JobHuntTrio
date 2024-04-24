@@ -1,6 +1,6 @@
 package dto;
 
-public class smhrdGraduationDTO {
+public class MemberDTO {
 	
 	private String id;
 	private String pw;
@@ -9,7 +9,7 @@ public class smhrdGraduationDTO {
 	private int age;
 	
 	
-	public smhrdGraduationDTO(String id, String pw, String name, String gender, int age) {
+	public MemberDTO(String id, String pw, String name, String gender, int age) {
 		this.id = id;
 		this.pw = pw;
 		this.name = name;
@@ -17,7 +17,7 @@ public class smhrdGraduationDTO {
 		this.age = age;
 	}
 	
-	public smhrdGraduationDTO(String id, String pw) {
+	public MemberDTO(String id, String pw) {
 		this.id = id;
 		this.pw = pw;
 		
