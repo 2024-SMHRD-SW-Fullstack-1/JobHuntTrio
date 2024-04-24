@@ -16,6 +16,12 @@ public class smhrdGraduationDTO {
 		this.gender = gender;
 		this.age = age;
 	}
+	
+	public smhrdGraduationDTO(String id, String pw) {
+		this.id = id;
+		this.pw = pw;
+		
+	}
 
 
 	public String getId() {
