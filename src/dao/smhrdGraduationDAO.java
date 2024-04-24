@@ -39,6 +39,26 @@ public class smhrdGraduationDAO{
 			}
 		}
 		
+	// 로그인 
+		public String login(MemberDTO dto) {
+			String uId = null;
+			try {
+				getConn();
+				String sql = "SELECT * FROM MEMBER_TB WHERE MEMBER_ID= ? AND MEMBER_PW= ?";
+				psmt = conn.prepareStatement(sql);
+				psmt.setString(1, dto.getId());
+				psmt.setString(2, dto.getPw());
+				rs = psmt.executeQuery();
+				if(rs.next()) {
+					uId = rs.getString(1);
+				}
+			} catch (Exception e) {
+					e.printStackTrace();
+				} finally {
+					getClose();
+				}
+			return uId;
+		}
 	// 회원가입
 	public int join(MemberDTO dto) {
 
