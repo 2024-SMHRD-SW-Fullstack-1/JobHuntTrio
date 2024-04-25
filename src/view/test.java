@@ -33,7 +33,7 @@ public class test {
 				System.out.println("가입완료");
 			}
 		}else if(input == 3){
-			String id = "TEST2";
+			String id = "TEST3";
 			smhrdGraduationDAO dao = new smhrdGraduationDAO();
 			 StatDTO dto = dao.SelectInpo(id);
 			 System.out.println(dto.getNickname()+"님의 정보");

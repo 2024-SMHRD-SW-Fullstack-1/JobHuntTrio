@@ -35,7 +35,21 @@ public class MenuTest {
 					System.out.println("아이디나 비밀번호가 틀렸습니다.");
 				}
 			}else if(input ==2) {
-				System.out.println("회원가입완료");
+				System.out.print("id");
+				String id =sc.next();
+				System.out.print("pw");
+				String pw =sc.next();
+				System.out.print("name");
+				String name =sc.next();
+				System.out.print("성별 남/여");
+				String gender =sc.next();
+				System.out.print("age");
+				int age = sc.nextInt();			
+				MemberDTO dto = new MemberDTO(id, pw, name, gender, age);
+				int row = dao.join(dto);
+				if(row >0) {
+					System.out.println("가입완료");
+				}
 			}else if(input ==3) {
 				System.out.println("회원탈퇴완료");
 			}else if(input ==4) {
@@ -52,6 +66,10 @@ public class MenuTest {
 				System.out.println("이전 플레이 내역이 있어 이어서 진행합니다.");
 			}else {
 				System.out.println("이전 플레이 내역이 없어 캐릭터를 생성합니다.");
+				System.out.println("닉네임 입력 : ");
+				String nick =sc.next();
+				StatDTO dto = new StatDTO(uId, nick);
+				dao.createU(dto);
 			}
 		}
 		

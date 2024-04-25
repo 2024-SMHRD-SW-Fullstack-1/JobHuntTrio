@@ -13,6 +13,7 @@ public class StatDTO {
 	public StatDTO() {
 		
 	}
+	
 	public StatDTO(String id, String nickname, int intellect, int cs, int algorithm, int health, int license, int day) {
 		this.id = id;
 		this.nickname = nickname;
@@ -22,6 +23,11 @@ public class StatDTO {
 		this.health = health;
 		this.license = license;
 		this.day = day;
+	}
+	
+	public StatDTO(String id, String nickname) {
+		this.id = id;
+		this.nickname = nickname;
 	}
 
 	public String getId() {
