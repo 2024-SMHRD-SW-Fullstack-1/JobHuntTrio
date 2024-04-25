@@ -24,6 +24,11 @@ public class MemberDTO {
 	}
 
 
+	public MemberDTO(String id2) {
+		this.id = id;
+		
+	}
+
 	public String getId() {
 		return id;
 	}
