@@ -81,7 +81,6 @@ public class MenuTest {
 			System.out.println(dto.getDay()+"일차 갓생력");
 			System.out.println("CS: "+dto.getCs());
 			System.out.println("알고리즘"+dto.getAlgorithm());
-			System.out.println("지능"+dto.getIntellect());
 			System.out.println("건강"+dto.getHealth());
 			System.out.println("자격증"+dto.getLicense());
 			System.out.println("[1]"+dto.getDay()+"일차 진행 [2]게임종료");

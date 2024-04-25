@@ -3,7 +3,7 @@ package dto;
 public class StatDTO {
 	private String id;
 	private String nickname;
-	private int intellect; 
+	private int intellect;
 	private int cs;
 	private int algorithm;
 	private int health;
@@ -14,7 +14,7 @@ public class StatDTO {
 		
 	}
 	
-	public StatDTO(String id, String nickname, int intellect, int cs, int algorithm, int health, int license, int day) {
+	public StatDTO(String id, String nickname,int intellect, int cs, int algorithm, int health, int license, int day) {
 		this.id = id;
 		this.nickname = nickname;
 		this.intellect = intellect;
@@ -25,6 +25,8 @@ public class StatDTO {
 		this.day = day;
 	}
 	
+	
+
 	public StatDTO(String id, String nickname) {
 		this.id = id;
 		this.nickname = nickname;
@@ -45,7 +47,7 @@ public class StatDTO {
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
 	}
-
+	
 	public int getIntellect() {
 		return intellect;
 	}
