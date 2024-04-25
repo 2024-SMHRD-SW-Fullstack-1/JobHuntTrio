@@ -8,7 +8,7 @@ import dao.MemberDAO;
 import dto.MemberDTO;
 import dto.StatDTO;
 
-public class MenuTest  {
+public class MenuTest01  {
 
 	public static void main(String[] args) {
 			
@@ -16,10 +16,8 @@ public class MenuTest  {
 		MemberDAO dao = new MemberDAO();
 		MusicController mc = new MusicController();
 		MainAscci mf = new MainAscci();
-		
 		String uId = null;
 		mf.intro();
-		
 		while(true) {
 			System.out.println("[1]로그인\t\t[2]회원가입\t\t[3]회원탈퇴\t\t[4]게임종료");
 			System.out.print("선택>>");
@@ -74,6 +72,7 @@ public class MenuTest  {
 				String nick =sc.next();
 				StatDTO dto = new StatDTO(uId, nick);
 				stat.createU(dto);
+				mf.gameIntro();
 			}
 		}
 		mc.play();
