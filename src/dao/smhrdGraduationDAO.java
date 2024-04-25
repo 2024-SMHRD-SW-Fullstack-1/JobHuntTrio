@@ -17,7 +17,7 @@ public class smhrdGraduationDAO{
 		protected PreparedStatement psmt = null;
 		protected ResultSet rs = null;
 		
-		protected void getConn() {
+		public void getConn() {
 			try{
 			Class.forName("oracle.jdbc.OracleDriver");
 			String url = "jdbc:oracle:thin:@project-db-campus.smhrd.com:1524:xe";
@@ -29,7 +29,7 @@ public class smhrdGraduationDAO{
 			}
 		}
 		
-		protected void getClose() {
+		public void getClose() {
 			try {
 				if(rs != null) rs.close(); 
 				if(psmt != null) psmt.close();
