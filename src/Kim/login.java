@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 import dao.smhrdGraduationDAO;
 
-public class login extends smhrdGraduationDAO{
+public class login extends Conn{
 
 	public static void main(String[] args) {
 
