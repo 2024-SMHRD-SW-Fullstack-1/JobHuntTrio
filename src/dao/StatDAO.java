@@ -56,7 +56,7 @@ public class StatDAO extends Conn {
 		int row = 0;
 		try {
 			getConn();
-			String sql = "UPDATE STAT_TB SET CS=CS+1 where MEMBER_ID = ?";
+			String sql = "UPDATE STAT_TB SET CS=CS+10 where MEMBER_ID = ?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, uId);
 			row = psmt.executeUpdate();
@@ -72,7 +72,7 @@ public class StatDAO extends Conn {
 		int row = 0;
 		try {
 			getConn();
-			String sql = "UPDATE STAT_TB SET ALGORITHM=ALGORITHM+1, HEALTH=HEALTH-20 where MEMBER_ID = ?";
+			String sql = "UPDATE STAT_TB SET ALGORITHM=ALGORITHM+10, HEALTH=HEALTH-20 where MEMBER_ID = ?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, uId);
 			row = psmt.executeUpdate();

@@ -16,7 +16,7 @@ public class Quiz {
 	String uId;
 
 	public void jq() {
-		List<QuizDTO> quizzes = selectQuizzesForAlgorithm();
+		List<QuizDTO> quizzes = selectQuizzesForjq();
 		processQuiz(quizzes);
 	}
 
@@ -24,8 +24,13 @@ public class Quiz {
 		List<QuizDTO> quizzes = selectQuizzesForSQLD();
 		processQuiz(quizzes);
 	}
+	
+	public void codingtest() {
+		List<QuizDTO> quizzes = selectQuizzesForCODDINGTEST();
+		processQuiz(quizzes);
+	}
 
-	private List<QuizDTO> selectQuizzesForAlgorithm() {
+	private List<QuizDTO> selectQuizzesForjq() {
 		StatDTO dto = stat.SelectInpo(uId);
 		if (dto.getAlgorithm() <= 30 && dto.getCs() <= 30) {
 			return quizDAO.readQuizzesFromFile("C:\\Users\\SMHRD\\Desktop\\미니프로젝트 퀴즈\\jt1.txt");
@@ -39,12 +44,24 @@ public class Quiz {
 
 	private List<QuizDTO> selectQuizzesForSQLD() {
 		StatDTO dto = stat.SelectInpo(uId);
-		if (dto.getIntellect() < 30 && dto.getCs() < 30) {
+		if (dto.getIntellect() < 30 || dto.getCs() < 30) {
 			return quizDAO.readQuizzesFromFile("C:\\Users\\SMHRD\\Desktop\\미니프로젝트 퀴즈\\sql1.txt");
-		} else if (dto.getIntellect() <= 60 && dto.getCs() <= 60) {
+		} else if (dto.getIntellect() > 30 && dto.getIntellect() <= 60 || dto.getCs() > 30 && dto.getCs() <= 60) {
 			return quizDAO.readQuizzesFromFile("C:\\Users\\SMHRD\\Desktop\\미니프로젝트 퀴즈\\sql2.txt");
-		} else if (dto.getIntellect() > 60 && dto.getCs() > 60) {
+		} else if (dto.getIntellect() > 60 || dto.getCs() > 60) {
 			return quizDAO.readQuizzesFromFile("C:\\Users\\SMHRD\\Desktop\\미니프로젝트 퀴즈\\sql3.txt");
+		}
+		return null;
+	}
+	
+	private List<QuizDTO> selectQuizzesForCODDINGTEST() {
+		StatDTO dto = stat.SelectInpo(uId);
+		if (dto.getIntellect() < 30 || dto.getCs() < 30) {
+			return quizDAO.readQuizzesFromFile("C:\\Users\\SMHRD\\Desktop\\미니프로젝트 퀴즈\\ct1.txt");
+		} else if (dto.getIntellect() > 30 && dto.getIntellect() <= 60 || dto.getCs() > 30 && dto.getCs() <= 60) {
+			return quizDAO.readQuizzesFromFile("C:\\Users\\SMHRD\\Desktop\\미니프로젝트 퀴즈\\ct2.txt");
+		} else if (dto.getIntellect() > 60 || dto.getCs() > 60) {
+			return quizDAO.readQuizzesFromFile("C:\\Users\\SMHRD\\Desktop\\미니프로젝트 퀴즈\\ct3.txt");
 		}
 		return null;
 	}
