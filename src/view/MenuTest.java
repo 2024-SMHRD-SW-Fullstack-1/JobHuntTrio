@@ -2,6 +2,7 @@ package view;
 
 import java.util.Scanner;
 
+import MusicController.MusicController;
 import dao.StatDAO;
 import dao.MemberDAO;
 import dto.MemberDTO;
@@ -13,7 +14,7 @@ public class MenuTest {
 			
 		Scanner sc = new Scanner(System.in);
 		MemberDAO dao = new MemberDAO();
-		
+		MusicController mc = new MusicController();
 		
 		String uId = null;
 		System.out.println("인트로");
@@ -74,7 +75,7 @@ public class MenuTest {
 				stat.createU(dto);
 			}
 		}
-		
+		mc.play();
 		while(uId !=null) {
 			StatDTO dto = stat.SelectInpo(uId);
 			System.out.println(dto.getDay()+"일차 갓생력");
@@ -83,9 +84,14 @@ public class MenuTest {
 			System.out.println("지능"+dto.getIntellect());
 			System.out.println("건강"+dto.getHealth());
 			System.out.println("자격증"+dto.getLicense());
-			
+			System.out.println("[1]"+dto.getDay()+"일차 진행 [2]게임종료");
+			int choose = sc.nextInt();
+			if(choose == 2) {
+				mc.stop();
+				break;
+			}
 			for(int i=1; i<=2; i++) {
-				System.out.println("[1]수업듣기 [2]독학하기 [3]시험보기 [4]간식먹기 [5]늦잠자기 [6]게임종료");
+				System.out.println("[1]수업듣기 [2]독학하기 [3]시험보기 [4]간식먹기 [5]늦잠자기");
 				int input = sc.nextInt();
 				if(input==1) {
 					System.out.println("수업을 듣습니다.");
@@ -107,9 +113,6 @@ public class MenuTest {
 					}
 				}else if(input==5) {
 					System.out.println("늦잠자기");																
-				}else if(input==6){
-					System.out.println("게임종료");
-					break;
 				}
 			}
 			System.out.println("하루가 지났습니다.");

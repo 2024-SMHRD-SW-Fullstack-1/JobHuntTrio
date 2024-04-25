@@ -30,7 +30,8 @@ public class StatDAO extends Conn{
 						}
 					return dto;
 			}
-
+		
+		// 캐릭터생성
 		public int createU(StatDTO dto) {
 		
 			int row = 0;
@@ -51,6 +52,7 @@ public class StatDAO extends Conn{
 			return row;
 		}
 	
+		// 수업듣기
 	public int listening(String uId) {
 		int row = 0;
 		try {
@@ -67,6 +69,7 @@ public class StatDAO extends Conn{
 		return row;
 	}
 	
+	// 공부하기
 	public int study(String uId) {
 		int row = 0;
 		try {
@@ -83,6 +86,7 @@ public class StatDAO extends Conn{
 		return row;
 	}
 	
+	// 간식먹기
 	public int snack(String uId) {
 		int row = 0;
 		try {
@@ -98,6 +102,8 @@ public class StatDAO extends Conn{
 		}
 		return row;
 	}
+	
+	// 늦잠자기
 	public void overSleep(String uId) {
 		int row=0;
 		try {
@@ -112,6 +118,8 @@ public class StatDAO extends Conn{
 				getClose();
 			}
 	}
+	
+	// 다음날
 	public void dayPlus(String uId) {
 		int row=0;
 		try {
