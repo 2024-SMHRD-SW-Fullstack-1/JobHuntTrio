@@ -8,20 +8,21 @@ import dao.MemberDAO;
 import dto.MemberDTO;
 import dto.StatDTO;
 
-public class MenuTest {
+public class MenuTest  {
 
 	public static void main(String[] args) {
 			
 		Scanner sc = new Scanner(System.in);
 		MemberDAO dao = new MemberDAO();
 		MusicController mc = new MusicController();
+		MainAscci mf = new MainAscci();
 		
 		String uId = null;
-		System.out.println("인트로");
+		mf.intro();
 		
 		while(true) {
-			System.out.println("[1]로그인 [2]회원가입 [3]회원탈퇴 [4]게임종료");
-			System.out.println("선택>>");
+			System.out.println("[1]로그인\t\t[2]회원가입\t\t[3]회원탈퇴\t\t[4]게임종료");
+			System.out.print("선택>>");
 			int input = sc.nextInt();
 			if(input==1) {
 				System.out.print("ID입력: ");
