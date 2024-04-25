@@ -89,6 +89,7 @@ public class MenuTest {
 				int input = sc.nextInt();
 				if(input==1) {
 					System.out.println("수업을 듣습니다.");
+					
 					if(stat.listening(uId)>0) {
 						System.out.println("수업을 들었습니다.");
 					}
