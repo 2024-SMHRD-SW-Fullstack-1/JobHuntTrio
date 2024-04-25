@@ -4,8 +4,6 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
-import dao.QuizDAO;
-import dto.QuizDTO;
 import dao.MemberDAO;
 import dao.StatDAO;
 import dto.MemberDTO;
