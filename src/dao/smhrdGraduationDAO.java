@@ -11,33 +11,7 @@ import java.util.ArrayList;
 import dto.MemberDTO;
 import dto.StatDTO;
 
-public class smhrdGraduationDAO{
-	
-		protected Connection conn = null;
-		protected PreparedStatement psmt = null;
-		protected ResultSet rs = null;
-		
-		public void getConn() {
-			try{
-			Class.forName("oracle.jdbc.OracleDriver");
-			String url = "jdbc:oracle:thin:@project-db-campus.smhrd.com:1524:xe";
-			String user = "campus_24SW_FS_p1_3";
-			String password= "smhrd3";
-			conn = DriverManager.getConnection(url, user, password);
-			} catch (Exception e){
-				e.printStackTrace();
-			}
-		}
-		
-		public void getClose() {
-			try {
-				if(rs != null) rs.close(); 
-				if(psmt != null) psmt.close();
-				if(conn != null) conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
+public class smhrdGraduationDAO extends Conn {
 		
 	// 로그인 
 		public String login(MemberDTO dto) {

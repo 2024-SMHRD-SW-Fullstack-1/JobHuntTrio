@@ -82,38 +82,38 @@ public class MenuTest {
 			System.out.println("지능"+dto.getIntellect());
 			System.out.println("건강"+dto.getHealth());
 			System.out.println("자격증"+dto.getLicense());
-			System.out.println("[1]수업듣기 [2]독학하기 [3]시험보기 [4]간식먹기 [5]늦잠자기 [6]게임종료");
-			int input = sc.nextInt();
 			StatDAO stat = new StatDAO();
-			if(input==1) {
-				System.out.println("수업을 듣습니다.");
-				if(stat.listening(uId)>0) {
-					System.out.println("수업을 들었습니다.");
+			
+			for(int i=1; i<=2; i++) {
+				System.out.println("[1]수업듣기 [2]독학하기 [3]시험보기 [4]간식먹기 [5]늦잠자기 [6]게임종료");
+				int input = sc.nextInt();
+				if(input==1) {
+					System.out.println("수업을 듣습니다.");
+					if(stat.listening(uId)>0) {
+						System.out.println("수업을 들었습니다.");
+					}
+				}else if(input==2) {
+					System.out.println("혼자 공부합니다.");		
+					if(stat.study(uId)>0) {
+						System.out.println("공부를 했습니다.");
+					}
+				}else if(input==3) {
+					System.out.println("시험을봅니다.");								
+				}else if(input==4) {
+					System.out.println("간식먹기");		
+					if(stat.snack(uId)>0) {
+						System.out.println("간식을 먹었습니다.");
+					}
+				}else if(input==5) {
+					System.out.println("늦잠자기");																
+				}else if(input==6){
+					System.out.println("게임종료");
+					break;
 				}
-			}else if(input==2) {
-				System.out.println("혼자 공부합니다.");		
-				if(stat.study(uId)>0) {
-					System.out.println("공부를 했습니다.");
-				}
-			}else if(input==3) {
-				System.out.println("시험을봅니다.");								
-			}else if(input==4) {
-				System.out.println("간식먹기");		
-				if(stat.snack(uId)>0) {
-					System.out.println("간식을 먹었습니다.");
-				}
-			}else if(input==5) {
-				System.out.println("늦잠자기");																
-			}else if(input==6){
-				System.out.println("게임종료");
-				break;
 			}
-			
-			
+			System.out.println("하루가 지났습니다.");
+			stat.dayPlus(uId);
 		}
-		
-		
-		
 	}
 
 }
