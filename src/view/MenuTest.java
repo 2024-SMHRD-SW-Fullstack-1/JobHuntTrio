@@ -3,7 +3,7 @@ package view;
 import java.util.Scanner;
 
 import dao.StatDAO;
-import dao.smhrdGraduationDAO;
+import dao.MemberDAO;
 import dto.MemberDTO;
 import dto.StatDTO;
 
@@ -12,7 +12,7 @@ public class MenuTest {
 	public static void main(String[] args) {
 			
 		Scanner sc = new Scanner(System.in);
-		smhrdGraduationDAO dao = new smhrdGraduationDAO();
+		MemberDAO dao = new MemberDAO();
 		
 		
 		String uId = null;
@@ -61,8 +61,9 @@ public class MenuTest {
 			}
 		}
 		
+		StatDAO stat = new StatDAO();
 		if(uId!=null) {
-			String uNick = dao.SelectInpo(uId).getNickname();
+			String uNick = stat.SelectInpo(uId).getNickname();
 			if(uNick!=null) {
 				System.out.println("이전 플레이 내역이 있어 이어서 진행합니다.");
 			}else {
@@ -70,19 +71,18 @@ public class MenuTest {
 				System.out.println("닉네임 입력 : ");
 				String nick =sc.next();
 				StatDTO dto = new StatDTO(uId, nick);
-				dao.createU(dto);
+				stat.createU(dto);
 			}
 		}
 		
 		while(uId !=null) {
-			StatDTO dto = dao.SelectInpo(uId);
+			StatDTO dto = stat.SelectInpo(uId);
 			System.out.println(dto.getDay()+"일차 갓생력");
 			System.out.println("CS: "+dto.getCs());
 			System.out.println("알고리즘"+dto.getAlgorithm());
 			System.out.println("지능"+dto.getIntellect());
 			System.out.println("건강"+dto.getHealth());
 			System.out.println("자격증"+dto.getLicense());
-			StatDAO stat = new StatDAO();
 			
 			for(int i=1; i<=2; i++) {
 				System.out.println("[1]수업듣기 [2]독학하기 [3]시험보기 [4]간식먹기 [5]늦잠자기 [6]게임종료");
