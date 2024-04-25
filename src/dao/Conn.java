@@ -33,4 +33,8 @@ public class Conn {
 			e.printStackTrace();
 		}
 	}
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 9239e2a4677488486a346a567e3a87bf569b0164

@@ -14,7 +14,11 @@ public class StatDTO {
 		
 	}
 	
+<<<<<<< HEAD
+	public StatDTO(String id, String nickname, int intellect, int cs, int algorithm, int health, int license, int day) {
+=======
 	public StatDTO(String id, String nickname,int intellect, int cs, int algorithm, int health, int license, int day) {
+>>>>>>> 9239e2a4677488486a346a567e3a87bf569b0164
 		this.id = id;
 		this.nickname = nickname;
 		this.intellect = intellect;
@@ -25,8 +29,11 @@ public class StatDTO {
 		this.day = day;
 	}
 	
+<<<<<<< HEAD
+=======
 	
 
+>>>>>>> 9239e2a4677488486a346a567e3a87bf569b0164
 	public StatDTO(String id, String nickname) {
 		this.id = id;
 		this.nickname = nickname;
