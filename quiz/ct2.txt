@@ -1,0 +1,12 @@
+두 개의 정수를 입력받아 더한 값이 홀수인지 짝수인지 판별하는 함수를 작성하시오.
+isEvenSum(a, b)
+checkSum(a, b)
+sum(a, b) % 2 == 0
+isOddSum(a, b)
+3
+주어진 문자열에서 특정 문자의 개수를 세는 함수를 작성하시오.
+count(target, string)
+find(target, string)
+string.count(target)
+charCount(target, string)
+3

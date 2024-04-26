@@ -33,11 +33,11 @@ public class Quiz {
 	private List<QuizDTO> selectQuizzesForjq() {
 		StatDTO dto = stat.SelectInpo(uId);
 		if (dto.getAlgorithm() <= 30 && dto.getCs() <= 30) {
-			return quizDAO.readQuizzesFromFile("C:\\Users\\SMHRD\\Desktop\\미니프로젝트 퀴즈\\jt1.txt");
+			return quizDAO.readQuizzesFromFile("quiz/jt1.txt");
 		} else if (dto.getAlgorithm() > 30 && dto.getAlgorithm() <= 60 && dto.getCs() > 30 && dto.getCs() <= 60) {
-			return quizDAO.readQuizzesFromFile("C:\\Users\\SMHRD\\Desktop\\미니프로젝트 퀴즈\\jt2.txt");
+			return quizDAO.readQuizzesFromFile("quiz/jt2.txt");
 		} else if (dto.getAlgorithm() > 60 && dto.getCs() > 60) {
-			return quizDAO.readQuizzesFromFile("C:\\Users\\SMHRD\\Desktop\\미니프로젝트 퀴즈\\jt3.txt");
+			return quizDAO.readQuizzesFromFile("quiz/jt3.txt");
 		}
 		return null;
 	}
@@ -45,11 +45,11 @@ public class Quiz {
 	private List<QuizDTO> selectQuizzesForSQLD() {
 		StatDTO dto = stat.SelectInpo(uId);
 		if (dto.getIntellect() < 30 || dto.getCs() < 30) {
-			return quizDAO.readQuizzesFromFile("C:\\Users\\SMHRD\\Desktop\\미니프로젝트 퀴즈\\sql1.txt");
+			return quizDAO.readQuizzesFromFile("quiz/sql1.txt");
 		} else if (dto.getIntellect() > 30 && dto.getIntellect() <= 60 || dto.getCs() > 30 && dto.getCs() <= 60) {
-			return quizDAO.readQuizzesFromFile("C:\\Users\\SMHRD\\Desktop\\미니프로젝트 퀴즈\\sql2.txt");
+			return quizDAO.readQuizzesFromFile("quiz/sql2.txt");
 		} else if (dto.getIntellect() > 60 || dto.getCs() > 60) {
-			return quizDAO.readQuizzesFromFile("C:\\Users\\SMHRD\\Desktop\\미니프로젝트 퀴즈\\sql3.txt");
+			return quizDAO.readQuizzesFromFile("quiz/sql3.txt");
 		}
 		return null;
 	}
@@ -57,11 +57,11 @@ public class Quiz {
 	private List<QuizDTO> selectQuizzesForCODDINGTEST() {
 		StatDTO dto = stat.SelectInpo(uId);
 		if (dto.getIntellect() < 30 || dto.getCs() < 30) {
-			return quizDAO.readQuizzesFromFile("C:\\Users\\SMHRD\\Desktop\\미니프로젝트 퀴즈\\ct1.txt");
+			return quizDAO.readQuizzesFromFile("quiz/ct1.txt");
 		} else if (dto.getIntellect() > 30 && dto.getIntellect() <= 60 || dto.getCs() > 30 && dto.getCs() <= 60) {
-			return quizDAO.readQuizzesFromFile("C:\\Users\\SMHRD\\Desktop\\미니프로젝트 퀴즈\\ct2.txt");
+			return quizDAO.readQuizzesFromFile("quiz/ct2.txt");
 		} else if (dto.getIntellect() > 60 || dto.getCs() > 60) {
-			return quizDAO.readQuizzesFromFile("C:\\Users\\SMHRD\\Desktop\\미니프로젝트 퀴즈\\ct3.txt");
+			return quizDAO.readQuizzesFromFile("quiz/ct3.txt");
 		}
 		return null;
 	}

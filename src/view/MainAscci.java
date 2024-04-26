@@ -22,7 +22,7 @@ public class MainAscci {
 		for(int i=0; i<intro.length; i++) {
 			System.out.println(intro[i]);
 			try {
-				Thread.sleep(600);
+				Thread.sleep(200);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 				}
@@ -32,13 +32,14 @@ public class MainAscci {
 	
 	public void gameIntro() {
 		
-		String[] intro = {"========Behind Stroy=========\r\n"
+		String[] intro = {"====================================Behind Stroy====================================\r\n"
 								, "졸업 후 취업 전선에서 연이은 좌절을 겪던 나는, 매일 같은 이력서 수정과 면접 준비에 지쳐 있었다. \r\n"
 								, "그러던 어느 날, 스마트인재개발원의 광고를 보고 새로운 희망을 발견했다. \r\n"
 								, "이곳에서 IT 기술과 전문 자격증을 배울 기회를 얻고, 나의 운명을 바꿀 대모험을 시작했다. \r\n"
 								, "코딩 테스트와 실습에서 실력을 증명해야 한다. 때로는 휴식을 취하며 스트레스를 관리하는 것도 중요하다. \r\n"
 								, "나의 최종 목표는 스마트인재개발원을 수료하고, 진정한 갓생을 살아내는 것이다. \r\n"
-								, "과연 나는 이 목표를 달성하고 진정한 갓생을 경험할 수 있을까? 이 게임을 통해 나의 여정을 직접 체험해 보자!"};
+								, "과연 나는 이 목표를 달성하고 진정한 갓생을 경험할 수 있을까? 이 게임을 통해 나의 여정을 직접 체험해 보자! \r\n"
+								, "======================================================================================"};
 			
 			try {
 				for(int i=0; i<intro.length; i++) {
@@ -48,6 +49,7 @@ public class MainAscci {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
+			System.out.println("\n\n\n\n\n\n\n\n");
 	}
 	
 	public void login() {
