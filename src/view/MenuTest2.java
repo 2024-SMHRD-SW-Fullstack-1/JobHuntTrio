@@ -18,7 +18,7 @@ public class MenuTest2 {
         MainAscci mainAscii = new MainAscci();
         String uId = loginOrRegister(sc, memberDAO);
         if (uId == null) {
-            System.out.println("로그인 또는 회원가입에 실패했습니다. 프로그램을 종료합니다.");
+            System.out.println("프로그램을 종료합니다.");
             return;
         }
         mainAscii.intro();
@@ -26,17 +26,21 @@ public class MenuTest2 {
     }
 
     private static String loginOrRegister(Scanner sc, MemberDAO memberDAO) {
-        while (true) {
+        String uId = null;
+        while (uId == null) {
             System.out.println("[1]로그인\t\t[2]회원가입\t\t[3]회원탈퇴\t\t[4]게임종료");
             System.out.print("선택>> ");
             int input = sc.nextInt();
             switch (input) {
                 case 1:
-                    return login(sc, memberDAO);
+                    uId = login(sc, memberDAO);
+                    break;
                 case 2:
-                    return register(sc, memberDAO);
+                    uId = register(sc, memberDAO);
+                    break;
                 case 3:
                     System.out.println("회원탈퇴완료");
+                    delete(sc, memberDAO);
                     break;
                 case 4:
                     System.out.println("게임을 종료합니다.");
@@ -45,19 +49,28 @@ public class MenuTest2 {
                     System.out.println("다른 번호를 입력해주세요.");
             }
         }
+        return uId;
     }
 
     private static String login(Scanner sc, MemberDAO memberDAO) {
-        System.out.print("ID입력: ");
-        String id = sc.next();
-        System.out.print("PW입력: ");
-        String pw = sc.next();
-        MemberDTO dto = new MemberDTO(id, pw);
-        String uId = memberDAO.login(dto);
-        if (uId != null) {
-            System.out.println(uId + "님이 로그인하셨습니다.");
-        } else {
-            System.out.println("아이디나 비밀번호가 틀렸습니다.");
+        String uId = null;
+        while (uId == null) {
+            System.out.print("ID입력: ");
+            String id = sc.next();
+            System.out.print("PW입력: ");
+            String pw = sc.next();
+            MemberDTO dto = new MemberDTO(id, pw);
+            uId = memberDAO.login(dto);
+            if (uId != null) {
+                System.out.println(uId + "님이 로그인하셨습니다.");
+            } else {
+                System.out.println("아이디나 비밀번호가 틀렸습니다.");
+                System.out.println("[Y] 다시 시도 [N] 메인 메뉴로 돌아가기");
+                String choice = sc.next();
+                if (!choice.equals("Y")||choice.equals("y")) {
+                    break;
+                }
+            }
         }
         return uId;
     }
@@ -82,6 +95,19 @@ public class MenuTest2 {
             System.out.println("회원가입에 실패했습니다.");
             return null;
         }
+    }
+    
+    private static int delete(Scanner sc, MemberDAO memberDAO) {
+        System.out.print("ID입력: ");
+        String id = sc.next();
+        System.out.print("PW입력: ");
+        String pw = sc.next();
+        MemberDTO dto = new MemberDTO(id, pw);
+        int row = memberDAO.delete(dto);
+        if (row >0) {
+            System.out.println("회원탈퇴하셨습니다.");
+        }
+        return row;
     }
 
     private static void playGame(String uId, Scanner sc, StatDAO statDAO, MusicController musicController) {
@@ -166,9 +192,6 @@ public class MenuTest2 {
         Quiz quiz = new Quiz();
 
         System.out.println("시험 난이도는 학습 능력에 따라 다르게 출제됩니다");
-        System.out.print("시험을 선택해주세요\n[1]자격증 시험 [2]코딩테스트\n");
-        int testSelect = sc.nextInt();
-        if (testSelect == 1) {
             System.out.println("자격증 시험을 선택하셨습니다");
             System.out.println("[1]정보처리기사 [2]SQLD");
             int license = sc.nextInt();
@@ -181,12 +204,7 @@ public class MenuTest2 {
             } else {
                 System.out.println("올바른 선택을 해주세요.");
             }
-        } else if (testSelect == 2) {
-            System.out.println("코딩 테스트를 진행합니다");
-            quiz.codingtest();
-        } else {
-            System.out.println("올바른 선택을 해주세요.");
-        }
+   
     }
 
     private static void eatSnack(StatDAO statDAO, String uId) {
