@@ -134,15 +134,15 @@ public class MenuTest {
 						if (license == 1) {
 							System.out.println("정보처리기사 시험장에 들어갔습니다");
 							System.out.println("아.. 조금만 더 보고올걸 \n");
-							quiz.jq();
-						} else if (license == 2) {
-							System.out.println("sql 시험장에 들어갔습니다");
-							System.out.println("후...떨린다 ... \n");
-							quiz.sqld();
+//							quiz.jq();
+//						} else if (license == 2) {
+//							System.out.println("sql 시험장에 들어갔습니다");
+//							System.out.println("후...떨린다 ... \n");
+//							quiz.sqld();
 						}
 					} else if (TestSelect == 2) {
 						System.out.println("코딩 테스트를 진행합니다");
-						quiz.codingtest();
+//						quiz.codingtest();
 					}
 				} else if (input == 4) {
 					System.out.println("간식먹기");
