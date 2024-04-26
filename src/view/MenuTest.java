@@ -113,12 +113,12 @@ public class MenuTest {
 				if (input == 1) {
 					System.out.println("수업을 듣습니다.");
 					if (stat.listening(uId) > 0) {
-						System.out.println("수업을 들었습니다.(cs + 1)");
+						System.out.println("수업을 들었습니다.(cs + 10)");
 					}
 				} else if (input == 2) {
 					System.out.println("혼자 공부합니다.");
 					if (stat.study(uId) > 0) {
-						System.out.println("공부를 했습니다.(알고리즘 +1 체력-20");
+						System.out.println("공부를 했습니다.(알고리즘 +10 체력-20)");
 					}
 				} else if (input == 3) {
 					Quiz quiz = new Quiz();
@@ -132,23 +132,25 @@ public class MenuTest {
 						System.out.println("[1]정보처리기사 [2]sqld");
 						int license = sc.nextInt();
 						if (license == 1) {
-							System.out.println("정보처리기사 시험을 시작하겠습니다");
-							quiz.jq();
-						} else if (license == 2) {
-							System.out.println("sql 시험을 시작하겠습니다");
-							quiz.sqld();
+							System.out.println("정보처리기사 시험장에 들어갔습니다");
+							System.out.println("아.. 조금만 더 보고올걸 \n");
+//							quiz.jq();
+//						} else if (license == 2) {
+//							System.out.println("sql 시험장에 들어갔습니다");
+//							System.out.println("후...떨린다 ... \n");
+//							quiz.sqld();
 						}
 					} else if (TestSelect == 2) {
 						System.out.println("코딩 테스트를 진행합니다");
-						quiz.codingtest();
+//						quiz.codingtest();
 					}
 				} else if (input == 4) {
 					System.out.println("간식먹기");
 					if (stat.snack(uId) > 0) {
-						System.out.println("간식을 먹었습니다.");
+						System.out.println("달고다디단 밤양갱을 먹었습니다~ (체력 +20)");
 					}
 				} else if (input == 5) {
-					System.out.println("늦잠자기");
+					System.out.println("아 유튜브 조금만 더 보고 자야겠다...(체력 -20)");
 				}
 			}
 			System.out.println("하루가 지났습니다.");

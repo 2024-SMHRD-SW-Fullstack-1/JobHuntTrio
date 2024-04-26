@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.ResultSetMetaData;
+import java.util.ArrayList;
 
 import dto.StatDTO;
 
@@ -58,7 +59,7 @@ public class StatDAO extends Conn {
 		int row = 0;
 		try {
 		getConn();
-		String sql = "UPDATE STAT_TB SET CS=CS+10, HEALTH=HEALTH-20 where MEMBER_ID = ?";
+		String sql = "UPDATE STAT_TB SET CS=CS+10, HEALTH=HEALTH-10 where MEMBER_ID = ?";
 		psmt = conn.prepareStatement(sql);
 		psmt.setString(1, uId);
 		row = psmt.executeUpdate();
@@ -76,7 +77,7 @@ public class StatDAO extends Conn {
 		int row = 0;
 		try {
 		getConn();
-		String sql = "UPDATE STAT_TB SET ALGORITHM=ALGORITHM+10, HEALTH=HEALTH-20 where MEMBER_ID = ?";
+		String sql = "UPDATE STAT_TB SET ALGORITHM=ALGORITHM+10, HEALTH=HEALTH-10 where MEMBER_ID = ?";
 		psmt = conn.prepareStatement(sql);
 		psmt.setString(1, uId);
 		row = psmt.executeUpdate();
@@ -94,7 +95,7 @@ public class StatDAO extends Conn {
 		int row = 0;
 		try {
 		getConn();
-		String sql = "UPDATE STAT_TB SET HEALTH=HEALTH+15 where MEMBER_ID = ?";
+		String sql = "UPDATE STAT_TB SET HEALTH=HEALTH+20 where MEMBER_ID = ?";
 		psmt = conn.prepareStatement(sql);
 		psmt.setString(1, uId);
 		row = psmt.executeUpdate();
@@ -111,7 +112,7 @@ public class StatDAO extends Conn {
 		int row=0;
 		try {
 			getConn();
-			String sql = "UPDATE STAT_TB SET HEALTH = HEALTH+30 where MEMBER_ID = ?";
+			String sql = "UPDATE STAT_TB SET HEALTH = HEALTH+30 ,cs=cs-10, ALGORITHM = ALGORITHM -10 where MEMBER_ID = ?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, uId);
 			row = psmt.executeUpdate();
@@ -154,5 +155,45 @@ public class StatDAO extends Conn {
 		}
 		return row;
 	}
-
+	
+	
+	public int sleepLate(String uId) {
+	      int row=0;
+	      try {
+	         getConn();
+	         String sql = "UPDATE STAT_TB SET HEALTH = HEALTH+30 where MEMBER_ID = ?";
+	         psmt = conn.prepareStatement(sql);
+	         psmt.setString(1, uId);
+	         row = psmt.executeUpdate();
+	         }catch (Exception e) {
+	            e.printStackTrace(); 
+	         } finally {
+	            getClose();
+	         }
+	      return row;
+	   }
+	
+	public ArrayList<StatDTO> rank() {
+	      
+	      ArrayList<StatDTO> arr = new ArrayList<StatDTO>();
+	         try {
+	            getConn();
+	            
+	            String sql = "SELECT * FROM STAT_TB WHERE CS >=70 AND ALGORITHM  >= 70 AND HEALTH >=70 AND LICENSE >=1 ORDER BY DAY";
+	            psmt = conn.prepareStatement(sql);
+	            
+	            rs = psmt.executeQuery();
+	            ResultSetMetaData rsmd = rs.getMetaData();
+	            
+	            while(rs.next()) {
+	               arr.add(new StatDTO(rs.getString(2), rs.getInt(8)));
+	            }
+	            
+	         } catch (Exception e) {
+	               e.printStackTrace();
+	            } finally {
+	               getClose();
+	            }
+	         return arr;
+	   }
 }

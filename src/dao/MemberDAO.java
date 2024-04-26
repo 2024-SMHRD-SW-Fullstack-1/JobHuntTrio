@@ -78,6 +78,27 @@ public class MemberDAO extends Conn {
 			return row;
 		}
 	
+	public int gameover(String uId) {
+		
+		int row = 0;
+		try {
+			getConn();
+			
+			String sql = "DELETE FROM MEMBER_TB WHERE MEMBER_ID=? ";
+			
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, uId);
+			
+			row = psmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			getClose();
+		}
+		return row;
+	}
+	
 
 }
 

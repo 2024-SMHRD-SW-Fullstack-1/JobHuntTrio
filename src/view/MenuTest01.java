@@ -18,7 +18,12 @@ public class MenuTest01  {
 		MainAscci mf = new MainAscci();
 		String uId = null;
 		mf.intro();
+		
+		
+		mf.gameIntro();
 		while(true) {
+			//기본메뉴
+			System.out.println("====================================  메인 메뉴 ==================================== ");
 			System.out.println("[1]로그인\t\t[2]회원가입\t\t[3]회원탈퇴\t\t[4]게임종료");
 			System.out.print("선택>>");
 			int input = sc.nextInt();
@@ -76,6 +81,8 @@ public class MenuTest01  {
 			}
 		}
 		mc.play();
+		menuLoop:
+		//게임메뉴
 		while(uId !=null) {
 			StatDTO dto = stat.SelectInpo(uId);
 			System.out.println(dto.getDay()+"일차 갓생력");
@@ -87,7 +94,7 @@ public class MenuTest01  {
 			int choose = sc.nextInt();
 			if(choose == 2) {
 				mc.stop();
-				break;
+				break menuLoop;
 			}
 			for(int i=1; i<=2; i++) {
 				System.out.println("[1]수업듣기 [2]독학하기 [3]시험보기 [4]간식먹기 [5]늦잠자기");

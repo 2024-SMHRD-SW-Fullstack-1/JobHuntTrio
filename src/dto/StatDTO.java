@@ -32,6 +32,12 @@ public class StatDTO {
 		this.nickname = nickname;
 	}
 
+	public StatDTO(String nickname, int day) {
+		this.nickname = nickname;
+		this.day = day;
+
+	}
+
 	public String getId() {
 		return id;
 	}
